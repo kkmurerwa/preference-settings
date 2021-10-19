@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="General"
+        app:iconSpaceReserved="false">
+        <EditTextPreference
+            android:title="Status"
+            android:key="key_status"
+            android:defaultValue="Turn wounds into wisdom"
+            android:dialogTitle="Update Status"
+            app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <SwitchPreferenceCompat
+            android:title="Auto Reply"
+            android:key="key_auto_reply"
+            android:defaultValue="false"
+            app:iconSpaceReserved="false"
+            android:summary="Automatically reply to a message" />
+
+        <ListPreference
+            android:dependency="key_auto_reply"
+            android:title="Auto-reply Time"
+            android:key="key_auto_reply_time"
+            android:dialogTitle="Default Reply Time"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"
+            android:entries="@array/entries_auto_reply_options"
+            android:entryValues="@array/values_auto_reply_options" />
+
+        <ListPreference
+            android:dependency="key_auto_reply"
+            android:title="Auto-reply Message"
+            android:key="key_auto_reply_message"
+            android:dialogTitle="Default Reply Message"
+            app:useSimpleSummaryProvider="true"
+            app:iconSpaceReserved="false"
+            android:entries="@array/entries_auto_reply_message"
+            android:entryValues="@array/values_auto_reply_message" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="App"
+        app:iconSpaceReserved="false">
+        <Preference
+            app:fragment="com.murerwa.settingapp.SettingsFragment"
+            android:key="key_account_settings"
+            android:summary="Privacy, Security"
+            android:title="Account Settings"
+            app:iconSpaceReserved="false" />
+
+        <CheckBoxPreference
+            app:defaultValue="true"
+            android:key="key_auto_download"
+            android:title="Auto Download"
+            android:summary="Auto-download files"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreference
+            app:defaultValue="true"
+            android:key="key_new_msg_notif"
+            android:title="Notifications"
+            android:summary="Show notifications for new messages"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="App"
+        app:iconSpaceReserved="false">
+        <Preference
+            android:key="key_version"
+            android:summary="3.5"
+            android:title="Version"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="key_privacy_policy"
+            android:title="Privacy Policy"
+            app:iconSpaceReserved="false" />
+    </PreferenceCategory>
+</PreferenceScreen>
